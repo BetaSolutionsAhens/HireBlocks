@@ -190,7 +190,9 @@ function viewJob(id,cname,clas) {
                       '<div class="line-divider"></div>'+
                       '<div class="row" style="text-align:center;color:grey;margin-bottom:10px">'+
                           '<div class="col-md-4" style="border-right:1px solid #c0c0c0">'+
-                              '<button class="btn btn-primary">Share</button>'+
+                              // '<button class="btn btn-primary">Share</button>'+
+                              '<button class="btn btn-primary shareJobPost" id="'+det[d].j_id+'" name="'+det[d].r_id+'" >Share</button>'+
+
                           '</div>'+
                           // '<div class="col-md-4" style="border-right:1px solid #c0c0c0">'+
                           //     '<span><button class="btn btn-primary rfollow" name="'+det[d].r_id+'" id="'+det[d].j_id+'"  >FOLLOW</button></span>'+
@@ -241,7 +243,9 @@ function viewJob(id,cname,clas) {
                       '<div class="line-divider"></div>'+
                       '<div class="row" style="text-align:center;color:grey;margin-bottom:10px">'+
                           '<div class="col-md-4" style="border-right:1px solid #c0c0c0">'+
-                              '<button class="btn btn-primary">Share</button>'+
+                              // '<button class="btn btn-primary">Share</button>'+
+                              '<button class="btn btn-primary shareJobPost" id="'+det[d].j_id+'" name="'+det[d].r_id+'" >Share</button>'+
+
                           '</div>'+
                           // '<div class="col-md-4" style="border-right:1px solid #c0c0c0">'+
                           //     '<span><button class="btn btn-primary rfollow" name="'+det[d].r_id+'" id="'+det[d].j_id+'"  >FOLLOW</button></span>'+
@@ -404,7 +408,9 @@ $(document).on('click', '.view', function(){
                       '<div class="line-divider"></div>'+
                       '<div class="row" style="text-align:center;color:grey;margin-bottom:10px">'+
                           '<div class="col-md-4" style="border-right:1px solid #c0c0c0">'+
-                              '<button class="btn btn-primary">Share</button>'+
+                              // '<button class="btn btn-primary">Share</button>'+
+                              '<button class="btn btn-primary shareJobPost" id="'+det[d].j_id+'" name="'+det[d].r_id+'" >Share</button>'+
+
                           '</div>'+
                           // '<div class="col-md-4" style="border-right:1px solid #c0c0c0">'+
                           //     '<span><button class="btn btn-primary rfollow" name="'+det[d].r_id+'" id="'+det[d].j_id+'"  >FOLLOW</button></span>'+
@@ -453,7 +459,9 @@ $(document).on('click', '.view', function(){
                       '<div class="line-divider"></div>'+
                       '<div class="row" style="text-align:center;color:grey;margin-bottom:10px">'+
                           '<div class="col-md-4" style="border-right:1px solid #c0c0c0">'+
-                              '<button class="btn btn-primary">Share</button>'+
+                              // '<button class="btn btn-primary">Share</button>'+
+                              '<button class="btn btn-primary shareJobPost" id="'+det[d].j_id+'" name="'+det[d].r_id+'" >Share</button>'+
+
                           '</div>'+
                           // '<div class="col-md-4" style="border-right:1px solid #c0c0c0">'+
                           //     '<span><button class="btn btn-primary rfollow" name="'+det[d].r_id+'" id="'+det[d].j_id+'"  >FOLLOW</button></span>'+
@@ -537,7 +545,9 @@ $(document).on('click', '.view_rel', function(){
                       '<div class="line-divider"></div>'+
                       '<div class="row" style="text-align:center;color:grey;margin-bottom:10px">'+
                           '<div class="col-md-4" style="border-right:1px solid #c0c0c0">'+
-                              '<button class="btn btn-primary">Share</button>'+
+                              // '<button class="btn btn-primary">Share</button>'+
+                              '<button class="btn btn-primary shareJobPost" id="'+det[d].j_id+'" name="'+det[d].r_id+'" >Share</button>'+
+
                           '</div>'+
                           // '<div class="col-md-4" style="border-right:1px solid #c0c0c0">'+
                           //     '<span><button class="btn btn-primary rfollow" name="'+det[d].r_id+'" id="'+det[d].j_id+'"  >FOLLOW</button></span>'+
@@ -586,7 +596,9 @@ $(document).on('click', '.view_rel', function(){
                       '<div class="line-divider"></div>'+
                       '<div class="row" style="text-align:center;color:grey;margin-bottom:10px">'+
                           '<div class="col-md-4" style="border-right:1px solid #c0c0c0">'+
-                              '<button class="btn btn-primary">Share</button>'+
+                              // '<button class="btn btn-primary">Share</button>'+
+                              '<button class="btn btn-primary shareJobPost" id="'+det[d].j_id+'" name="'+det[d].r_id+'" >Share</button>'+
+
                           '</div>'+
                           // '<div class="col-md-4" style="border-right:1px solid #c0c0c0">'+
                           //     '<span><button class="btn btn-primary rfollow" name="'+det[d].r_id+'" id="'+det[d].j_id+'"  >FOLLOW</button></span>'+
@@ -607,10 +619,55 @@ $(document).on('click', '.view_rel', function(){
   })
     // $("#myModal").modal('show')
     // window.location.href="r_jobfeed.html?r_id="+encodeURIComponent(rid)+"&j_id="+encodeURIComponent(jid) ;
-
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
 });
 
+// SHARE JOB POST THROUGH SOCIAL MEDIA
+$(document).on('click', '.followSelector', function(){
+  var divtag="";
+  var j_id=$(this).attr('id');
+  var r_id = $(this).attr('name');
+  console.log(j_id);
+  console.log(r_id);
 
+
+    divtag = '<a href="http://www.jqueryscript.net" class="share facebook btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>'+
+    '<a href="http://www.jqueryscript.net" data-text="7000+ latest Free jQuery plugins with examples and tutorials for web &amp; mobile developers." class="share twitter btn btn-info"><i class="fa fa-twitter"></i> Twitter</a>'+
+    '<a href="http://www.jqueryscript.net" data-text="7000+ latest Free jQuery plugins with examples and tutorials for web &amp; mobile developers." class="share linkedin btn btn-default"><i class="fa fa-linkedin"></i> LinkedIn</a>'+
+    '<a href="http://www.jqueryscript.net" class="share google-plus btn btn-danger"><i class="fa fa-google-plus"></i> Google Plus</a>';
+
+  // $('.sharetastic').sharetastic();
+  // $('.shareSelector').socialShare({
+  //   social: 'facebook,twitter,google,pinterest,stumbleupon,delicious,friendfeed,digg,linkedin',
+  //   whenSelect: true,
+  //   selectContainer: '.shareSelector',
+  //   blur: true
+  // });
+  //
+  // $('.followSelector').socialProfiles({
+  //   animation: 'chain',
+  //   blur: true,
+  //   facebook: 'suji.sowjanya',
+  //   // google: '102336483082058519992',
+  //   twitter: 'tolgaergin',
+  //   // pinterest: 'tolga',
+  //   // dribbble: 'bbb',
+  //   // behance: 'gokhun',
+  //   // scoutzie: 'gokhun-guneyhan',
+  //   linkedin: 'linkedin.com/in/tolgaergin'
+  // });
+
+ //  $("#share").jsSocials({
+ //     shares: ["email", "twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
+ // });
+
+});
 
 
 

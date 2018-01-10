@@ -120,7 +120,7 @@ if(isset($_POST['lev_4b'])){
 	$comp=$_POST['currcomp'];
 	$exomp=$_POST['expcomp'];
 	$lev_4b=$_POST['lev_4b'];
-	$month=$_POST['month'];
+	// $month=$_POST['month'];
 	$notice=$_POST['notice'];
 
 	// $sel_exp=mysqli_query($connect,"select * from edu_qf order by e_id desc");
@@ -128,7 +128,7 @@ if(isset($_POST['lev_4b'])){
 	// $exp_type=$sel_exp2['e_cn_type'];
 	// $exp_uid=$sel_exp2['e_id'];
 	// if($exp_type=='exp'){
-	$insert=mysqli_query($connect,"insert into exp(`ex_uid`,`ex_month`,`ex_notice`,`ex_years`, `ex_cc`, `ex_desc`, `ex_cjob_type`, `ex_prefjob_type`, `ex_c_comp`, `ex_exp_comps`) values('$us_id','$month','$notice','$var','$cc','$dg','$cjt','$pjt','$comp','$exomp')");
+	$insert=mysqli_query($connect,"insert into exp(`ex_uid`,`ex_notice`,`ex_years`, `ex_cc`, `ex_desc`, `ex_cjob_type`, `ex_prefjob_type`, `ex_c_comp`, `ex_exp_comps`) values('$us_id','$notice','$var','$cc','$dg','$cjt','$pjt','$comp','$exomp')");
 	if($insert)
 	{
 		$upd=mysqli_query($connect,"update c_log set status='1' where cl_id='$us_id'");

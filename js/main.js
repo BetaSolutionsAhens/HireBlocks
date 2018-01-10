@@ -156,15 +156,17 @@ $(document).ready(function()
 // table inserting
 
 $(document).ready(function(){
+
   $.ajaxSetup({cache: false});
 
 	$("#qf_sub").click(function(){
 		var board=$("#board").val();
 		var course=$("#course").val();
 		var special=$("#special").val();
-		var course_type=$("#course_type").val();
+		var course_type=$("#course_type option:selected").val()
+    // $("#course_type").val();
 		var marks=$("#marks").val();
-		var yop=$("#yop").val();
+		var yop=$("#yop option:selected").val();
 		var qf_sub=$("#qf_sub").val();
 		var inst=$("#inst").val();
 		$.ajax({
@@ -366,21 +368,22 @@ $(document).ready(function(){
 
 	$(document).ready(function(){
 	$("#lev_4b").click(function(){
-		var noyrs = $("#noy").val();
-    var nomon = $("#can_months").val();
+		var noyrs = $("#noy option:selected").val();
+    var nomon = $("#can_months option:selected").val();
     var notice = $("#notice").val();
 		var cc = $("#current_company").val();
 		var desig = $("#designation").val();
-		var cjt = $("#currentjob_type").val();
-		var pjt = $("#preferedjob_type").val();
+		var cjt = $("#currentjob_type option:selected").val();
+		var pjt = $("#preferedjob_type option:selected").val();
 		var ccomp = $("#current_comp").val();
 		var ecomp = $("#exp_comp").val();
 		var lev_4b=$("#lev_4b").val();
+    var years=noyrs+" "+nomon;
 
 		$.ajax({
 			type:"POST",
 			url:"php/ins.php",
-			data:{years:noyrs,month:nomon,notice:notice,current_comp:cc,designation:desig,currjtype:cjt,preferjtype:pjt,currcomp:ccomp,expcomp:ecomp,lev_4b:lev_4b},
+			data:{years:years,notice:notice,current_comp:cc,designation:desig,currjtype:cjt,preferjtype:pjt,currcomp:ccomp,expcomp:ecomp,lev_4b:lev_4b},
       cache:false,
 			success:function(data){
 				// alert(data);

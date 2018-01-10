@@ -21,10 +21,16 @@ $rec_id=$_SESSION['cand_id'];
         <link rel="stylesheet" href="../css/font-awesome.min.css" />
         <link rel="stylesheet" href="../css/custom.css" />
         <link href="../css/emoji.css" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="..css/sharetastic.css"/> -->
+        <!-- <link rel="stylesheet" href="assets/stylesheets/example.css"> -->
+
+      	<link rel="stylesheet" href="..css/stylesheets/arthref.css">
+
         <!--Google Font-->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
         <!--Favicon-->
         <link rel="shortcut icon" type="image/png" href="../images/fav.png" />
+
     </head>
     <body>
       <!-- <input type="hidden" id="candidate_name_1" value="<?php //echo $can_sel['cl_n']?>"> -->
@@ -88,8 +94,29 @@ if ($result->num_rows > 0) {
                       <div class="line-divider"></div>
                       <div class="row" style="text-align:center;color:grey;margin-bottom:10px">
                           <div class="col-md-4" style="border-right:1px solid #c0c0c0">
-                              <button class="btn btn-primary">Share</button>
+                              <!-- <button class="btn btn-primary">Share</button> -->
+                            <!-- <button class="btn btn-primary followSelector" id="<?php //echo $row['j_id'];?>"  name="<?php //echo $row['r_id'];?>" >Share</button> -->
+                            <!-- <div class="sharetastic sharetastic--simple"></div> -->
+                            <div id="fb-root"></div>
+                              <script>(function(d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1";
+                                fjs.parentNode.insertBefore(js, fjs);
+                              }(document, 'script', 'facebook-jssdk'));</script>
+
+                              <!-- Your share button code -->
+                              <div class="fb-share-button"
+                                data-href="https://www.hireblocks.com/index.html"
+                                data-layout="button_count">
+                              </div>
+                            <!-- <div class="fb-share-button followSelector" id="<?php //echo $row['j_id'];?>"  name="<?php //echo $row['r_id'];?>" data-href="https://www.hireblocks.com/" data-layout="button">
+                            </div> -->
+
                           </div>
+                          <!-- <div id="share"></div> -->
+
                           <div class="col-md-4" style="border-right:1px solid #c0c0c0">
                               <span><button class="btn btn-primary" name="<?php echo $row['r_compname'];?>" id="<?php echo $row['j_id'];?>" onclick="viewJob($(this).attr('id'),$(this).attr('name'),$(this).attr('class'))">View</button></span>
                           </div>
@@ -117,7 +144,7 @@ if ($result->num_rows > 0) {
                   </div>
               </div>
 
-              
+
 <?php
 }
 } else {
@@ -128,6 +155,9 @@ if ($result->num_rows > 0) {
 
 
 <script src="../js/jquery-3.1.1.min.js"></script>
+<!-- <script src="..js/sharetastic.js"></script> -->
+<script src="..js/javascripts/socialShare.min.js"></script>
+<script src="..js/javascripts/socialProfiles.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/jquery.magnific-popup.min.js"></script>
 <script src="../js/jquery.sticky-kit.min.js"></script>
@@ -139,19 +169,7 @@ if ($result->num_rows > 0) {
 <!-- insert resume -->
 <!-- <script src="../js/jobfeed.js"></script> -->
 
-<script type="text/javascript">
 
-
-   // $(document).ready(function(){
-
-   //  alert("gcf")
-   //  $("a[class='apply_btn']").click(function(){
-   //    alert("ghj")
-   // console.log($(this).attr("id"));
-
-   //  })
-  // })
-</script>
 </html>
 <!-- <?php
 //$candidate_name=$_POST['']
